@@ -14,6 +14,7 @@ net start wuauserv
 # Open the Windows Update GUI;
 control update
 
+<#
 ######################################## EXPERIMENTAL CODE BELOW
 
 # Add some lines where you wait for Windows Updates to finish installing,
@@ -37,3 +38,5 @@ Restart-Computer -Force
 ########################
 
 # Next I need a way to run a SFCR upon reboot & logging back in;
+
+#>
