@@ -13,3 +13,5 @@ net start wuauserv
 
 REM Open the Windows Update GUI;
 control update
+
+REM Install Dell SupportAssist updates;

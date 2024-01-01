@@ -14,6 +14,8 @@ net start wuauserv
 # Open the Windows Update GUI;
 control update
 
+# Install Dell SupportAssist updates;
+
 <#
 ######################################## EXPERIMENTAL CODE BELOW
 
