@@ -5,6 +5,9 @@ REM - PLEASE NOTE YOU MUST RUN CMD AS ADMINISTRATOR FOR THIS SCRIPT TO WORK!
 :: '::' is the other comment notation in batch scripts,
 :: unlike REM it will not print the comment to the terminal;
 
+:: Install pip updates;
+pip install --upgrade pip
+
 :: Install all available Chocolatey updates;
 choco upgrade all
 

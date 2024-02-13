@@ -2,6 +2,9 @@
 # then it starts the Windows Update service and opens up the GUI for it;
 # PLEASE NOTE YOU MUST RUN POWERSHELL AS ADMINISTRATOR!
 
+# Install pip updates;
+pip install --upgrade pip
+
 # Install all available Chocolatey updates;
 choco upgrade all
 
