@@ -9,7 +9,7 @@ REM - PLEASE NOTE YOU MUST RUN CMD AS ADMINISTRATOR FOR THIS SCRIPT TO WORK!
 pip install --upgrade pip
 
 :: Install all available Chocolatey updates;
-choco upgrade all
+choco upgrade all -y
 
 :: THIS COMMAND MUST BE RUN IN USER TERMINAL, NOT ADMIN;
 :: Install all available winget updates;
