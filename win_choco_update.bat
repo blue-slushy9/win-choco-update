@@ -1,29 +1,33 @@
-REM - This is a batch script that installs all available Chocolatey and winget updates,
-REM  - then it starts the Windows Update service and opens up the GUI for it;
-REM - PLEASE NOTE YOU MUST RUN CMD AS ADMINISTRATOR FOR THIS SCRIPT TO WORK!
+REM - This is a batch script that installs all available pip, Chocolatey, 
+REM - and winget updates, then it starts the Windows Update service 
+REM - and opens up the GUI for it;
+REM - Please note that if you are running this script manually 
+REM - (not as a Scheduled Task), YOU MUST RUN CMD AS ADMINISTRATOR!
 
 :: '::' is the other comment notation in batch scripts,
-:: unlike REM it will not print the comment to the terminal;
+:: unlike REM it will not print the comment to the terminal
 
-:: Install pip updates;
+:: Install pip updates
 pip install --upgrade pip
 
-:: Install all available Chocolatey updates;
+:: Install all available Chocolatey updates
 choco upgrade all -y
 
-:: THIS COMMAND MUST BE RUN IN USER TERMINAL, NOT ADMIN;
-:: Install all available winget updates;
-:: the password is that of the Microsoft account 
-:: for blue_slushy9@protonmail.com;
+:: THIS COMMAND MUST BE RUN IN USER TERMINAL, NOT ADMIN!
+:: Install all available winget updates; the password is that of the Microsoft 
+:: account for blue_slushy9@protonmail.com;
 runas /user:racru "winget upgrade --all --force"
 
-:: Start the Windows Update service;
+:: Start the Windows Update service
 net start wuauserv
 
-:: Open the Windows Update GUI;
+:: Open the Windows Update GUI
 control update
 
-:: Install Dell SupportAssist updates;
+:: Reboot after 60 minutes
+shutdown /r /f /t 3600
+
+:: Install Dell SupportAssist updates
 :: NOT SURE ABOUT THIS: DellSupportAssist.exe
 
 :: NOTES
