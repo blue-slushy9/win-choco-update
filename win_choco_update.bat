@@ -8,7 +8,9 @@ REM - (not as a Scheduled Task), YOU MUST RUN CMD AS ADMINISTRATOR!
 :: unlike REM it will not print the comment to the terminal
 
 :: Install pip updates
-pip install --upgrade pip
+REM pip install --upgrade pip REM this command seems to be deprecated
+REM - below is the new command
+python.exe -m pip install --upgrade pip
 
 :: Install all available Chocolatey updates
 choco upgrade all -y
