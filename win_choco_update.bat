@@ -21,10 +21,19 @@ choco upgrade all -y
 :: prompts, perhaps by running it as its own script in Task Scheduler and
 :: granting it the highest permissions (or whatever);
 
+
 :: THIS COMMAND MUST BE RUN IN USER TERMINAL, NOT ADMIN!
 :: Install all available winget updates; the password is that of the Microsoft 
-:: account for blue_slushy9@protonmail.com;
+:: account for blue_slushy9@protonmail.com
 runas /user:racru "winget upgrade --all --silent --force"
+
+
+:: 8/10/24 - none of the below seem to be working
+:: Let's try running it as Admin within a Scheduled Task, instead of as a User
+::winget upgrade --all --silent --force
+:: I want to verify winget updates are being installed, so let's try this
+::winget upgrade --all --force
+
 
 :: Start the Windows Update service, it is most likely already running but
 :: just to make sure
