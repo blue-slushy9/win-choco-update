@@ -1,6 +1,6 @@
 REM - This is a batch script that installs all available pip, Chocolatey, 
 REM - and winget updates, then it starts the Windows Update service 
-REM - and opens up the GUI for it;
+REM - and opens up the Windows Update GUI;
 REM - Please note that if you are running this script manually 
 REM - (not as a Scheduled Task), YOU MUST RUN CMD AS ADMINISTRATOR!
 
@@ -8,19 +8,26 @@ REM - (not as a Scheduled Task), YOU MUST RUN CMD AS ADMINISTRATOR!
 :: unlike REM it will not print the comment to the terminal
 
 :: Install pip updates
-REM pip install --upgrade pip REM this command seems to be deprecated
-REM - below is the new command
+:: pip install --upgrade pip :: this command seems to be deprecated
+:: below is the new command
 python.exe -m pip install --upgrade pip
 
 :: Install all available Chocolatey updates
 choco upgrade all -y
 
+:: 8/10/24 - some of the winget installers still require Admin permissions,
+:: and it's annoying having to click Yes in the little pop-up windows; will
+:: have to figure out a way to get winget updates to install without any
+:: prompts, perhaps by running it as its own script in Task Scheduler and
+:: granting it the highest permissions (or whatever);
+
 :: THIS COMMAND MUST BE RUN IN USER TERMINAL, NOT ADMIN!
 :: Install all available winget updates; the password is that of the Microsoft 
 :: account for blue_slushy9@protonmail.com;
-runas /user:racru "winget upgrade --all --force"
+runas /user:racru "winget upgrade --all --silent --force"
 
-:: Start the Windows Update service
+:: Start the Windows Update service, it is most likely already running but
+:: just to make sure
 net start wuauserv
 
 :: Open the Windows Update GUI
