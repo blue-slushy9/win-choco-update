@@ -1,0 +1,18 @@
+# This command allows you to run a .bat script on a schedule, in this case
+# every Saturday at midnight
+
+# Create a scheduled task, must be run in Admin Terminal
+schtasks /create /tn "win_choco_update.bat" /tr "C:\Users\Me\documents\GitHub\PowerShell\win-choco-update\win_choco_update.bat" /sc weekly /d SAT /st 00:00 /RL HIGHEST
+
+
+# ISSUES WITH BATCH SCRIPT
+
+-still need to include Dell SupportAssist updates in script
+
+-the password for the user account still has to be entered at the point where
+the user terminal opens for the winget updates
+
+-many of the winget updates still need to be manually approved on an 
+individual basis before they can be installed
+
+-include command at end of script for an automated reboot
